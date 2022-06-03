@@ -3,7 +3,7 @@ import {Entity, Column, CreateDateColumn, UpdateDateColumn, PrimaryGeneratedColu
 @Entity('producers')
 export default class Products{
     @PrimaryGeneratedColumn('increment')
-    id: string;
+    id: number;
 
     @Column()
     name:string;

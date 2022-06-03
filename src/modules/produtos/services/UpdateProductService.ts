@@ -6,28 +6,28 @@ import ProductRepository from '../repositories/ProductsRepository';
 interface IRequest {
   id:string,
   name: string,
-  price: string,
-  variety: string,
-  topSellers: string,
-  image: string,
-  category: boolean,
-  more18: boolean,
-  description:string,
-  ativo: number,
+  name_fazenda: string,
+  cpf_cnpj:string,
+  estado:string,
+  hectares :number,
+  area_agricultável:number,
+  area_vegetação:number,
+  plantacao:string,
+  ativo: number
 }
 
 class UpdateProductService {
   public async execute({
     id,
     name,
-    price,
-    variety,
-    topSellers,
-    image,
-    category,
-    more18,
-    description,
-    ativo
+    name_fazenda,
+    cpf_cnpj,
+    estado,
+    hectares,
+    area_agricultável,
+    area_vegetação,
+    plantacao,
+    ativo,
   }: IRequest): Promise<Product> {
     const productsRepository = getCustomRepository(ProductRepository);
 
@@ -48,13 +48,13 @@ class UpdateProductService {
     
 
     product.name = name;
-    product.price = price;
-    product.variety = variety;
-    product.topSellers = topSellers;
-    product.image = image;
-    product.category = category;
-    product.more18 = more18;
-    product.description = description;
+    product.name_fazenda = name_fazenda;
+    product.cpf_cnpj = cpf_cnpj;
+    product.estado = estado;
+    product.hectares = hectares;
+    product.area_agricultável = area_agricultável;
+    product.area_vegetação = area_vegetação;
+    product.plantacao = plantacao;
     product.ativo = ativo;
     
 

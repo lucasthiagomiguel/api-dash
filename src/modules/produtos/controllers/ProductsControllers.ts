@@ -41,7 +41,7 @@ export default class ProductsController {
     }
 
     public async update(request: Request, response: Response): Promise<Response> {
-        const {name,price,variety,topSellers,image,category,more18,description,ativo} = request.body;
+        const {name,name_fazenda,cpf_cnpj,estado,hectares,area_agricultável,area_vegetação,plantacao,ativo} = request.body;
         const { id } = request.params;
     
         const updateProduct = new UpdateProductService();
@@ -49,13 +49,13 @@ export default class ProductsController {
         const product = await updateProduct.execute({
             id,
             name,
-            price,
-            variety,
-            topSellers,
-            image,
-            category,
-            more18,
-            description,
+            name_fazenda,
+            cpf_cnpj,
+            estado,
+            hectares,
+            area_agricultável,
+            area_vegetação,
+            plantacao,
             ativo
         });
     
