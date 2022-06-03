@@ -23,17 +23,17 @@ export default class ProductsController {
         return response.json(product);
       }
     public async create(request: Request, response: Response): Promise<Response>{
-        const {name,price,variety,topSellers,image,category,more18,description} = request.body;
+        const {name,name_fazenda,cpf_cnpj,estado,hectares,area_agricultável,area_vegetação,plantacao} = request.body;
         const createProduc = new CreateProducService();
         const Produc = await createProduc.execute({
             name,
-            price,
-            variety,
-            topSellers,
-            image,
-            category,
-            more18,
-            description,
+            name_fazenda,
+            cpf_cnpj,
+            estado,
+            hectares,
+            area_agricultável,
+            area_vegetação,
+            plantacao,
             ativo:1
         });
 

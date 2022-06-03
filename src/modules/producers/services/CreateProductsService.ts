@@ -5,29 +5,29 @@ import  ProductsRepository  from '../repositories/ProductsRepository';
 
 interface IRequest {
   name: string,
-  price: string,
-  variety: string,
-  topSellers: string,
-  image: string,
-  category: boolean,
-  more18: boolean,
-  description:string,
+  name_fazenda: string,
+  cpf_cnpj:string,
+  estado:string,
+  hectares :number,
+  area_agricultável:number,
+  area_vegetação:number,
+  plantacao:string,
   ativo: number
 }
 
 class CreateProductService {
-  public async execute({ name,price,variety,topSellers,image,category,more18,description }: IRequest): Promise<Products> {
+  public async execute({ name,name_fazenda,cpf_cnpj,estado,hectares,area_agricultável,area_vegetação,plantacao }: IRequest): Promise<Products> {
     const ProductRepository = getCustomRepository(ProductsRepository);
 
     const Product = ProductRepository.create({
       name,
-      price,
-      variety,
-      topSellers,
-      image,
-      category,
-      more18,
-      description,
+      name_fazenda,
+      cpf_cnpj,
+      estado,
+      hectares,
+      area_agricultável,
+      area_vegetação,
+      plantacao,
       ativo: 1
     })
 
