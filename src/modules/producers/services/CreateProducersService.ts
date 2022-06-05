@@ -1,6 +1,6 @@
 import { getCustomRepository } from 'typeorm';
-import  Products  from '../entities/Products';
-import  ProductsRepository  from '../repositories/ProductsRepository';
+import  Producers  from '../entities/Producers';
+import  ProducersRepository  from '../repositories/ProducersRepository';
 
 
 interface IRequest {
@@ -15,9 +15,9 @@ interface IRequest {
   ativo: number
 }
 
-class CreateProductService {
-  public async execute({ name,name_fazenda,cpf_cnpj,estado,hectares,area_agricultável,area_vegetação,plantacao }: IRequest): Promise<Products> {
-    const ProductRepository = getCustomRepository(ProductsRepository);
+class CreateProducerservice {
+  public async execute({ name,name_fazenda,cpf_cnpj,estado,hectares,area_agricultável,area_vegetação,plantacao }: IRequest): Promise<Producers> {
+    const ProductRepository = getCustomRepository(ProducersRepository);
 
     const Product = ProductRepository.create({
       name,
@@ -36,4 +36,4 @@ class CreateProductService {
   }
 }
 
-export default CreateProductService;
+export default CreateProducerservice;

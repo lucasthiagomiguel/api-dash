@@ -1,7 +1,7 @@
 import {Entity, Column, CreateDateColumn, UpdateDateColumn, PrimaryGeneratedColumn} from "typeorm";
 
 @Entity('producers')
-export default class Products{
+export default class Producers{
     @PrimaryGeneratedColumn('increment')
     id: number;
 
