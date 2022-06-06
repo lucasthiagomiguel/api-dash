@@ -38,12 +38,7 @@ class UpdateProducersService {
       throw new AppError('Producers not found.');
     }
 
-    const ProducersExists = await ProducerssRepository.findOne({cpf_cnpj:cpf_cnpj});
-
-    if (ProducersExists) {
-      throw new AppError('There is already one Producers with this CPF or CNPJ');
-    }
-
+    
     // const redisCache = new RedisCache();
 
     
@@ -53,8 +48,8 @@ class UpdateProducersService {
     Producers.cpf_cnpj = cpf_cnpj;
     Producers.estado = estado;
     Producers.hectares = hectares;
-    Producers.area_agricultavel = area_agricultavel;
-    Producers.area_vegetacao = area_vegetacao;
+    Producers.area_agricultavel = area_agricultavel * 10000;
+    Producers.area_vegetacao = area_vegetacao * 10000;
     Producers.plantacao = plantacao;
     Producers.total_fazenda = hectares * 10000;//area total da fazenda
     Producers.ativo = ativo;

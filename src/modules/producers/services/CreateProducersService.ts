@@ -20,6 +20,8 @@ interface IRequest {
 class CreateProducerservice {
   public async execute({ name,name_fazenda,cpf_cnpj,estado,hectares,area_agricultavel,area_vegetacao,plantacao,total_fazenda }: IRequest): Promise<Producers> {
     var total_fazenda = hectares * 10000;
+    area_agricultavel = area_agricultavel * 10000;
+    area_vegetacao = area_vegetacao * 10000;
     const areaTotal = area_agricultavel + area_vegetacao;
     if(areaTotal > total_fazenda){
       throw new AppError('NAO POODE CADASTRAR, AREA TOTAL MENOR QUE A PLANTACAO');
