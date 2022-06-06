@@ -1,4 +1,4 @@
-import { EntityRepository, Repository } from "typeorm";
+import { EntityRepository, Repository,createQueryBuilder } from "typeorm";
 import Products  from "../entities/Producers";
 
 
@@ -21,5 +21,6 @@ export default class ProductsRepository extends Repository<Products>{
         });
         return products;
     }    
+
    
 }
