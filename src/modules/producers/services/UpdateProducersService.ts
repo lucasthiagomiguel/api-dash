@@ -10,9 +10,10 @@ interface IRequest {
   cpf_cnpj:string,
   estado:string,
   hectares :number,
-  area_agricultável:number,
-  area_vegetação:number,
+  area_agricultavel:number,
+  area_vegetacao:number,
   plantacao:string,
+  total_fazenda:number,
   ativo: number
 }
 
@@ -24,8 +25,8 @@ class UpdateProducersService {
     cpf_cnpj,
     estado,
     hectares,
-    area_agricultável,
-    area_vegetação,
+    area_agricultavel,
+    area_vegetacao,
     plantacao,
     ativo,
   }: IRequest): Promise<Producers> {
@@ -37,10 +38,10 @@ class UpdateProducersService {
       throw new AppError('Producers not found.');
     }
 
-    const ProducersExists = await ProducerssRepository.findByName(name);
+    const ProducersExists = await ProducerssRepository.findOne({cpf_cnpj:cpf_cnpj});
 
     if (ProducersExists) {
-      throw new AppError('There is already one Producers with this name');
+      throw new AppError('There is already one Producers with this CPF or CNPJ');
     }
 
     // const redisCache = new RedisCache();
@@ -52,9 +53,10 @@ class UpdateProducersService {
     Producers.cpf_cnpj = cpf_cnpj;
     Producers.estado = estado;
     Producers.hectares = hectares;
-    Producers.area_agricultável = area_agricultável;
-    Producers.area_vegetação = area_vegetação;
+    Producers.area_agricultavel = area_agricultavel;
+    Producers.area_vegetacao = area_vegetacao;
     Producers.plantacao = plantacao;
+    Producers.total_fazenda = hectares * 10000;//area total da fazenda
     Producers.ativo = ativo;
     
 

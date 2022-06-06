@@ -21,13 +21,16 @@ export default class Producers{
     hectares:number;
 
     @Column()
-    area_agricultável:number;
+    area_agricultavel:number;
 
     @Column()
-    area_vegetação:number;
+    area_vegetacao:number;
 
     @Column()
     plantacao:string;
+    
+    @Column()
+    total_fazenda:number;
 
     @Column()
     ativo:number;

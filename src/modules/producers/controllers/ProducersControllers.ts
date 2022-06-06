@@ -23,7 +23,7 @@ export default class ProducersController {
         return response.json(product);
       }
     public async create(request: Request, response: Response): Promise<Response>{
-        const {name,name_fazenda,cpf_cnpj,estado,hectares,area_agricultável,area_vegetação,plantacao} = request.body;
+        const {name,name_fazenda,cpf_cnpj,estado,hectares,area_agricultavel,area_vegetacao,plantacao} = request.body;
         const createProduc = new CreateProducService();
         const Produc = await createProduc.execute({
             name,
@@ -31,9 +31,10 @@ export default class ProducersController {
             cpf_cnpj,
             estado,
             hectares,
-            area_agricultável,
-            area_vegetação,
+            area_agricultavel,
+            area_vegetacao,
             plantacao,
+            total_fazenda:hectares * 10000,//area total da fazenda
             ativo:1
         });
 
@@ -41,7 +42,7 @@ export default class ProducersController {
     }
 
     public async update(request: Request, response: Response): Promise<Response> {
-        const {name,name_fazenda,cpf_cnpj,estado,hectares,area_agricultável,area_vegetação,plantacao,ativo} = request.body;
+        const {name,name_fazenda,cpf_cnpj,estado,hectares,area_agricultavel,area_vegetacao,plantacao,ativo} = request.body;
         const { id } = request.params;
     
         const updateProduct = new UpdateProducerService();
@@ -53,9 +54,10 @@ export default class ProducersController {
             cpf_cnpj,
             estado,
             hectares,
-            area_agricultável,
-            area_vegetação,
+            area_agricultavel,
+            area_vegetacao,
             plantacao,
+            total_fazenda:hectares * 10000,//area total da fazenda
             ativo
         });
     

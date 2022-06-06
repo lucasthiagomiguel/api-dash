@@ -8,7 +8,7 @@ export class Producers1654113205993 implements MigrationInterface {
             columns: [
                 {
                     name: "id",
-                    type: "varchar",
+                    type: "int",
                     isPrimary: true,
                     
                 },
@@ -17,32 +17,36 @@ export class Producers1654113205993 implements MigrationInterface {
                     type: "varchar",
                 },
                 {
-                    name: "price",
+                    name: "name_fazenda",
                     type: "varchar",
                 },
                 {
-                    name: "variety",
+                    name: "cpf_cnpj",
                     type: "varchar",
                 },
                 {
-                    name: "topSellers",
-                    type: "boolean",
-                },
-                {
-                    name: "image",
+                    name: "estado",
                     type: "varchar",
                 },
                 {
-                    name: "category",
-                    type: "boolean",
+                    name: "hectares",
+                    type: "int",
                 },
                 {
-                    name: "more18",
-                    type: "boolean",
+                    name: "area_agricultavel",
+                    type: "int",
                 },
                 {
-                    name: "description",
+                    name: "area_vegetacao",
+                    type: "int",
+                },
+                {
+                    name: "plantacao",
                     type: "varchar",
+                },
+                {
+                    name: "total_fazenda",
+                    type: "int",
                 },
                 {
                     name: "ativo",
