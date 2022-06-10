@@ -58,7 +58,7 @@ export default class ProducersController {
             area_vegetacao,
             plantacao,
             total_fazenda:hectares * 10000,//area total da fazenda
-            ativo
+            ativo:1
         });
     
         return response.json(product);

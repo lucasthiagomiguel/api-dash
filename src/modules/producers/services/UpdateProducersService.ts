@@ -48,11 +48,11 @@ class UpdateProducersService {
     Producers.cpf_cnpj = cpf_cnpj;
     Producers.estado = estado;
     Producers.hectares = hectares;
-    Producers.area_agricultavel = area_agricultavel * 10000;
-    Producers.area_vegetacao = area_vegetacao * 10000;
+    Producers.area_agricultavel = area_agricultavel;
+    Producers.area_vegetacao = area_vegetacao;
     Producers.plantacao = plantacao;
     Producers.total_fazenda = hectares * 10000;//area total da fazenda
-    Producers.ativo = ativo;
+    Producers.ativo = 1;
     
 
     await ProducerssRepository.save(Producers);
